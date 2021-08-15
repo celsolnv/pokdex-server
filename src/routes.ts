@@ -16,7 +16,7 @@ const removePokemonForUserController = new RemovePokemonForUserController();
 
 router.post("/sign-up",createUserController.handle);
 router.post("/sign-in",authenticateUserController.handle);
-router.get("/pokemons",getAllPokemonsController.handle);
+router.get("/pokemons",ensureAuthenticated,getAllPokemonsController.handle);
 router.post("/my-pokemons/:id/add",ensureAuthenticated,addPokemonForUserController.handle);
 router.post("/my-pokemons/:id/remove",ensureAuthenticated,removePokemonForUserController.handle);
 
