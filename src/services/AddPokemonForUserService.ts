@@ -20,8 +20,6 @@ export class AddPokemonForUserService{
             userId
         });
 
-        console.log(pokemonUser);
-
         await pokemonUserRepository.save(pokemonUser);
 
         return pokemonUser;

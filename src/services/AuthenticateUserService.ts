@@ -6,7 +6,6 @@ interface IAuthenticateRequest{
     email:string;
     password:string;
 }
-
 export class AuthenticateUserService{
     async execute({email,password}:IAuthenticateRequest){
 
@@ -30,7 +29,6 @@ export class AuthenticateUserService{
                 expiresIn:"1d"
             }
         );
-        console.log("My token => ", token)
         return token;
 
     }
