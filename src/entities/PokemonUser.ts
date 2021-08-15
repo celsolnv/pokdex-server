@@ -1,17 +1,24 @@
 import { User } from './User';
 import { Pokemon } from './Pokemon';
-import { Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity("pokemon_user_user_users")
+@Entity("pokemon_user")
 export class PokemonUser{
     @PrimaryGeneratedColumn()
     id:number;
 
-    @ManyToMany(()=>Pokemon)
-    @JoinTable()
+    @Column({name:"pokemon_id"})
     pokemonId:number;
 
-    @ManyToMany(()=>User)
-    @JoinTable()
+    @Column({name:"user_id"})
     userId:number;
+
+    @ManyToOne(()=>Pokemon)
+    @JoinColumn({name:"pokemon_id"})
+    pokemon:Pokemon;
+
+    @ManyToOne(()=>User) 
+    @JoinColumn({name:"user_id"})
+    user:User;
+
 }
