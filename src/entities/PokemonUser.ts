@@ -9,9 +9,9 @@ export class PokemonUser{
 
     @ManyToMany(()=>Pokemon)
     @JoinTable()
-    pokemon:Pokemon;
+    pokemonId:number;
 
     @ManyToMany(()=>User)
     @JoinTable()
-    user:User;
+    userId:number;
 }
