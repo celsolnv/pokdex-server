@@ -9,7 +9,7 @@ async function seedDatabase(){
     });
 
     async function listPokemonsLinks(api:AxiosInstance){
-        const pokemons = await api.get("/pokemon?limit=1");
+        const pokemons = await api.get("/pokemon?limit=20");
 
         return pokemons.data.results;
     }
